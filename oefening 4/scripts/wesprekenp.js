@@ -1,57 +1,56 @@
-let zin = prompt('Geef een zin in: ');
-//let zin="Als de kat van huis is, dansen de muizen";
-console.log(`De zin in P taal: ${vertaal(zin)}`);
-console.log(
-  `De zin in P taal via destructuring: ${vertaalMetDestructuring(zin)}`
-);
+'use strict';
+
+const zin = prompt('Geef een zin in: ');
+//const zin="Als de kat van huis is, dansen de muizen";
+alert(`De zin in P taal: ${vertaal(zin)}`);
 
 function vertaal(zin) {
-  let pzin = [];
-  let lettersTeHerhalen = [];
-  for (let letter of zin) {
+  let pzin = '';
+  let lettersTeHerhalen = '';
+  for (const letter of zin) {
     if ('aeiouAEIOU'.indexOf(letter) > -1) {
-      lettersTeHerhalen.push(letter);
+      lettersTeHerhalen += letter;
     } else {
       if (lettersTeHerhalen.length > 0) {
         pzin = herhaal(pzin, lettersTeHerhalen);
-        lettersTeHerhalen = [];
+        lettersTeHerhalen = '';
       }
     }
-    pzin.push(letter);
+    pzin += letter;
   }
   if (lettersTeHerhalen.length > 0) {
     pzin = herhaal(pzin, lettersTeHerhalen);
   }
-  return pzin.join('');
+  return pzin;
 }
 
 function herhaal(zin, lettersTeHerhalen) {
-  zin.push('p');
-  return zin.concat(lettersTeHerhalen);
+  return (zin += 'p' + lettersTeHerhalen);
 }
 
-function vertaalMetDestructuring(zin) {
-  let pzin = [];
-  let lettersTeHerhalen = [];
-  let letter;
-  while (zin.length !== 0) {
-    [letter, ...zin] = zin;
-    if ('aeiouAEIOU'.indexOf(letter) > -1) {
-      lettersTeHerhalen = [...lettersTeHerhalen, letter];
-    } else {
-      if (lettersTeHerhalen.length > 0) {
-        pzin = herhaalMetDestructuring(pzin, lettersTeHerhalen);
-        lettersTeHerhalen = [];
-      }
-    }
-    pzin = [...pzin, letter];
-  }
-  if (lettersTeHerhalen.length > 0) {
-    pzin = herhaalMetDestructuring(pzin, lettersTeHerhalen);
-  }
-  return pzin.join('');
-}
+/* Oplossing gebruik makend van Arrays */
 
-function herhaalMetDestructuring(zin, lettersTeHerhalen) {
-  return [...zin, 'p', ...lettersTeHerhalen];
-}
+// function vertaal(zin) {
+//   let pzin = [];
+//   let lettersTeHerhalen = [];
+//   for (const letter of zin) {
+//     if ('aeiouAEIOU'.indexOf(letter) > -1) {
+//       lettersTeHerhalen.push(letter);
+//     } else {
+//       if (lettersTeHerhalen.length > 0) {
+//         pzin = herhaal(pzin, lettersTeHerhalen);
+//         lettersTeHerhalen = [];
+//       }
+//     }
+//     pzin.push(letter);
+//   }
+//   if (lettersTeHerhalen.length > 0) {
+//     pzin = herhaal(pzin, lettersTeHerhalen);
+//   }
+//   return pzin.join('');
+// }
+
+// function herhaal(zin, lettersTeHerhalen) {
+//   zin.push('p');
+//   return zin.concat(lettersTeHerhalen);
+// }

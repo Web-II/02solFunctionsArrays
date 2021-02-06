@@ -1,39 +1,31 @@
-const keuzeGebruiker = prompt("Kies je blad, steen of schaar?");
+'use strict';
+
+const keuzeGebruiker = prompt('Kies je blad, steen of schaar?');
+
 let keuzeComputer = Math.random();
-if (keuzeComputer < 0.34) {
-	keuzeComputer = "blad";
-} else if(keuzeComputer <= 0.67) {
-	keuzeComputer = "steen";
+if (keuzeComputer < 1 / 3) {
+  keuzeComputer = 'blad';
+} else if (keuzeComputer <= 2 / 3) {
+  keuzeComputer = 'steen';
 } else {
-	keuzeComputer = "schaar";
+  keuzeComputer = 'schaar';
 }
 console.log(vergelijk(keuzeGebruiker, keuzeComputer));
 
-function vergelijk(keuze1, keuze2)
-{
-    if (keuze1===keuze2){
-        return "Het resultaat is een gelijkspel!";
-    }
-    if (keuze1==="steen")
-    {
-        if (keuze2==="schaar")
-            return "steen wint";
-            else
-            return "blad wint";
-    }
-    if (keuze1==="blad")
-    {
-        if (keuze2==="steen")
-            return "blad wint";
-            else
-            return "schaar wint";
-    }  
-    if (keuze1==="schaar")
-    {
-        if (keuze2 === "steen")
-            return "steen wint";
-        else
-            return "schaar wint";
-    }  
-  
+function geefResultaat(keuze1, keuze2) {
+  if (keuze1 === keuze2) {
+    return 'Het resultaat is een gelijkspel!';
+  }
+  if (keuze1 === 'steen') {
+    if (keuze2 === 'schaar') return 'Steen wint';
+    else return 'Blad wint';
+  }
+  if (keuze1 === 'blad') {
+    if (keuze2 === 'steen') return 'Blad wint';
+    else return 'Schaar wint';
+  }
+  if (keuze1 === 'schaar') {
+    if (keuze2 === 'steen') return 'Steen wint';
+    else return 'Schaar wint';
+  }
 }
