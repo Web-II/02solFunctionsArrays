@@ -25,7 +25,10 @@ function berekenPositieMaxScore(eendjes) {
   for (let i = 0; i <= eendjes.length - 4; i++) {
     let nieuweScore = 0;
     for (let j = i; j < i + 4; j++) nieuweScore += eendjes[j];
-    if (nieuweScore > score) positie = i;
+    if (nieuweScore > score) {
+      positie = i;
+      score = nieuweScore;
+    }
   }
   return positie;
 }

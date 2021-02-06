@@ -10,7 +10,7 @@ if (keuzeComputer < 1 / 3) {
 } else {
   keuzeComputer = 'schaar';
 }
-console.log(vergelijk(keuzeGebruiker, keuzeComputer));
+console.log(geefResultaat(keuzeGebruiker, keuzeComputer));
 
 function geefResultaat(keuze1, keuze2) {
   if (keuze1 === keuze2) {
