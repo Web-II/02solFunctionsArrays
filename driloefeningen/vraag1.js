@@ -31,7 +31,7 @@ console.log(myAvatar);
 const myArray = ['bob', 23, false];
 
 // 4. Wat wordt er afgebeeld in de console?
-console.log(['uno', 'dos', 'tres'].length); //2
+console.log(['uno', 'dos', 'tres'].length); //3
 
 // 5. Wat wordt er afgebeeld in de console?
 const arr = [1, 'bob'];
