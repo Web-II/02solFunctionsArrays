@@ -8,18 +8,18 @@ function left(string, length = 1) {
   return string.substring(0, length);
 }
 
-console.log(left('abcd')); // a
-console.log(left('abcd', 2)); // ab
+console.log(left("abcd")); // a
+console.log(left("abcd", 2)); // ab
 
 // 2. Herschrijf getAvatar() met een 'function expression'
 const getAvatar = function (points) {
   let avatar;
   if (points < 100) {
-    avatar = 'Mouse';
+    avatar = "Mouse";
   } else if (points < 1000) {
-    avatar = 'Cat';
+    avatar = "Cat";
   } else {
-    avatar = 'Gorilla';
+    avatar = "Gorilla";
   }
   return avatar;
 };
@@ -28,24 +28,24 @@ const myAvatar = getAvatar(335);
 console.log(myAvatar);
 
 // 3. Creëer een array 'myArray' met de volgende elementen: "bob", 23, false
-const myArray = ['bob', 23, false];
+const myArray = ["bob", 23, false];
 
 // 4. Wat wordt er afgebeeld in de console?
-console.log(['uno', 'dos', 'tres'].length); //2
+console.log(["uno", "dos", "tres"].length); //2
 
 // 5. Wat wordt er afgebeeld in de console?
-const arr = [1, 'bob'];
+const arr = [1, "bob"];
 console.log(arr[1]); // bob
 
 // 6. Wat wordt er afgebeeld in de console?
 const b = [1, 2];
-b[0] = 'test';
+b[0] = "test";
 console.log(b); //['test', 2]
 
 // 7. Geef het eerste en het laatste element van de array dieren weer in de console.
 // Jouw code moet voldoende algemeen zijn zodat als er dieren worden toegevoegd
 // ze blijft werken.
-const dieren = ['paard', 'varken', 'koe', 'kip'];
+const dieren = ["paard", "varken", "koe", "kip"];
 console.log(dieren[0], dieren[dieren.length - 1]); //paard kip
 
 // 8.
@@ -53,22 +53,22 @@ console.log(dieren[0], dieren[dieren.length - 1]); //paard kip
 //   Gebruik als scheidingsteken een min-teken.
 //   Geef de bekomen string 'teenage-mutant-ninja-turtles' weer in de console.
 // - Kan je hetzelfde resultaat bekomen met een in JavaScript ingebouwde array-method?
-const words = ['teenage', 'mutant', 'ninja', 'turtles'];
+const words = ["teenage", "mutant", "ninja", "turtles"];
 
 let res = words[0];
 for (let i = 1; i < words.length; i++) {
   const word = words[i];
-  res += '-' + word;
+  res += "-" + word;
 }
 
 console.log(res);
-console.log(words.join('-'));
+console.log(words.join("-"));
 
 // 9. Wat denk je dat er wordt afgebeeld in de console?
 // Controleer door in de Developer Tools de expressie
 //     typeof ['katten']
 // in te typen in de Console.
-console.log(typeof ['katten']); // object
+console.log(typeof ["katten"]); // object
 
 // 10. Wat denk je dat er wordt afgebeeld in de console?
 // Controleer door in de Developer Tools de expressie
@@ -77,7 +77,7 @@ console.log(typeof ['katten']); // object
 console.log([1, 89] === [1, 89]); // false
 
 // 11. Wat wordt er afgebeeld in de console?
-const blue = ['da ba dee da ba da'];
+const blue = ["da ba dee da ba da"];
 const green = blue;
 console.log(blue === green); //true
 
@@ -102,12 +102,24 @@ console.log(numberArray); // [11, 22, 33, 44, 55]
 function getNumbers(arr) {
   const numbers = [];
   for (const element of arr) {
-    if (typeof element === 'number') {
+    if (typeof element === "number") {
       numbers.push(element);
     }
   }
   return numbers;
 }
 
-const vanalles = [1, 40, 'bob', [], false, 89];
+const vanalles = [1, 40, "bob", [], false, 89];
 console.log(getNumbers(vanalles)); // [1, 40, 89]
+
+// 14. Log de gevraagde zaken naar de console zonder de array "origineel"
+//     te wijzigen
+const origineel = ["D", "B", "A", "E", "C"];
+// - de originele array gesorteerd
+console.log(origineel.toSorted());
+// - de originele array in omgekeerde volgorde
+console.log(origineel.toReversed());
+// - de originele array met de 2 letters "A" en "E" vervangen door 1 letter "Z"
+console.log(origineel.toSpliced(2, 2, "Z"));
+// - de originele array
+console.log(origineel); // ["D", "B", "A", "E", "C"]
